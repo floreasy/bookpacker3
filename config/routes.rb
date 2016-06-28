@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+    scope module: :api, defaults: {format: :json} do
+    %w(v1).each do |version|
+      namespace version.to_sym do
+        resource :configuration, only: %w(show)
+        resource :user_token, path: :token, only: %w(create destroy update)
+        resources :users, only: %w(create update show) do
+          resources :questions, only: %w(index)
+          collection do
+            post :forgot_password
+            put :reset_password
+          end
+        end
+      end
+    end
+  end
+
+  namespace :admin do
+    # get "/stats" => "stats#stats"
+    devise_scope :admin_user do
+      get '/stats/:scope' => "stats#stats", as: :admin_stats
+    end
+  end
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
   post '/signup' => 'splash#signup', as: :splash_signup
   get '/splash' => 'splash#index'

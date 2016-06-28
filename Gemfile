@@ -89,4 +89,15 @@ gem 'devise', '~> 3.4'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'google-api-client', require: 'google/api_client'
+gem 'google-api-client','0.8.2', require: 'google/api_client'
+
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'omniauth-instagram'
+gem 'instagram'
+gem 'activeadmin', github: 'activeadmin', branch: 'master'
+gem 'inherited_resources'
+gem 'dateslices'
+gem 'apitome'
+gem 'rspec_api_documentation', groups: [:development, :test]
+gem 'jazz_hands', github: 'danrabinowitz/jazz_hands', branch: 'use-newer-version-of-pry', groups: [:development, :test]
