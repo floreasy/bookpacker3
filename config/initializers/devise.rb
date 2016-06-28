@@ -237,7 +237,7 @@ Devise.setup do |config|
 
   # ==> OmniAuth
     config.omniauth :instagram, ENV['INSTAGRAM_APP_ID'], ENV['INSTAGRAM_APP_SECRET']
-    config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
+    config.omniauth :twitter, 'm5YkAfs1Ebhg8ogFcEThQssxu', 'FYz1mekopNOWxqD7zf3jk4zGkCN1lyhimyOsME6BG65JkzUWw0'
     config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH2_APP_ID'], ENV['GOOGLE_OAUTH2_APP_SECRET'], scope: "email,profile,offline", prompt: "consent"
     config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: "email"
   # Add a new OmniAuth provider. Check the wiki for more information on setting

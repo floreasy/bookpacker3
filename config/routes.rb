@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  get 'welcome/loggedin'
+
     scope module: :api, defaults: {format: :json} do
     %w(v1).each do |version|
       namespace version.to_sym do
@@ -27,7 +31,7 @@ Rails.application.routes.draw do
   devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
   post '/signup' => 'splash#signup', as: :splash_signup
   get '/splash' => 'splash#index'
-  root 'splash#index'
+  root 'welcome#index'
   get '/setup' => 'setup#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
